@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  #chatOutput p {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  #chatOutput p.user {
+    background-color: #e0f7fa;
+  }
+
+  #chatOutput p.advisor {
+    background-color: #d1e7dd; /* Changed Advisor background color */
+    white-space: pre-line;
+  }
+
+  input, button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  button {
+    cursor: pointer;
+  }
+  #loading {
+    display: none;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .spinner {
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+    border: 4px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
