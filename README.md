@@ -35,7 +35,7 @@ Optional step thta shows how we store data into faiss
 uvicorn main:app --reload
 
 ### 4. Access the Chat Interface
-http://127.0.0.1:8000/chat/index.html
+localhost/chat/index.html
 
 #### How It Works
 User Query and Memory Detection:
@@ -66,3 +66,8 @@ Ensure the .env file is correctly configured with your OpenAI API key.
 
 Network Issues:
 Check any firewall or proxy settings if API calls fail.
+
+##Example of use:
+![image](https://github.com/user-attachments/assets/f215dcc9-b8bf-44b3-b447-22d4a01ab342)
+
+
