@@ -16,8 +16,25 @@ body {
   }
 
   #chatOutput p.advisor {
-    background-color: #d1e7dd; /* Changed Advisor background color */
+    background-color: #d1e7dd;
     white-space: pre-line;
+  }
+
+  #chatOutput p.memory {
+    background-color: #f8f9fa;
+    font-style: italic;
+    color: #555;
+  }
+
+  .spinner {
+    display: inline-block;
+    margin: 0 5px;
+    height: 20px;
+    width: 20px;
+    border: 3px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
   }
 
   input, button {

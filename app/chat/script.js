@@ -1,16 +1,18 @@
-document.getElementById('sendBtn').addEventListener('click', function() {
-    const userInput = document.getElementById('userInput').value.trim();
+function sendMessage() {
+    const userInputElement = document.getElementById('userInput');
+    const userInput = userInputElement.value.trim();
     if (!userInput) return;
 
     const chatOutput = document.getElementById('chatOutput');
     const loadingDiv = document.getElementById('loading');
 
     chatOutput.innerHTML += `<p class="user"><strong>You:</strong> ${userInput}</p>`;
-    document.getElementById('userInput').value = '';
+
+    userInputElement.value = '';
 
     loadingDiv.style.display = 'block';
 
-    fetch('http://127.0.0.1:8000/query', {
+    fetch('/query', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ question: userInput })
@@ -26,4 +28,26 @@ document.getElementById('sendBtn').addEventListener('click', function() {
       loadingDiv.style.display = 'none';
       chatOutput.innerHTML += `<p class="advisor"><strong>Error:</strong> ${error}</p>`;
     });
+
+    fetch('/memory', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: userInput })
+    })
+    .then(response => response.json())
+    .then(data => {
+      chatOutput.innerHTML += `<p class="memory"><strong>Memory:</strong> ${data.status}: ${data.content}</p>`;
+    })
+    .catch(error => {
+      console.error('Error storing memory:', error);
+      chatOutput.innerHTML += `<p class="memory"><strong>Memory Error:</strong> ${error}</p>`;
+    });
+  }
+
+  document.getElementById('sendBtn').addEventListener('click', sendMessage);
+
+  document.getElementById('userInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
   });

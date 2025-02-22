@@ -43,7 +43,7 @@ def generate_response(query: str) -> str:
         return answer
     except Exception as e:
         print("Error during OpenAI API call:", e)
-        return "Something wrong"
+        return "OpenAI API error"
 
 if __name__ == "__main__":
     sample_query = "What are 5 cocktails containing lemon?"

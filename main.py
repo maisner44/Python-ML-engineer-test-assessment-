@@ -21,14 +21,15 @@ def is_user_memory(message: str) -> bool:
 
 @app.post("/query")
 async def query_endpoint(query: QueryRequest):
-    if is_user_memory(query.question):
-        store_user_memory(query.question)
     answer = generate_response(query.question)
     return {"answer": answer}
 
-# Endpoint to store user memories in the vector DB
 @app.post("/memory")
 async def memory_endpoint(memory: MemoryRequest):
-    return {"status": "Memory stored successfully", "content": memory.content}
+    if is_user_memory(memory.content):
+        store_user_memory(memory.content)
+        return {"status": "Memory stored successfully", "content": memory.content}
+    else:
+        return {"status": "Message not recognized as a memory", "content": memory.content}
 
 app.mount("/chat", StaticFiles(directory="app/chat"), name="chat")

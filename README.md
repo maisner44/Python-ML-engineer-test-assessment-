@@ -22,26 +22,6 @@ Accepts POST requests with user-provided favorite ingredients or cocktails, stor
 
 ## The version of openai is 0.28.0
 
-## Project Structure
-
-Python-ML-engineer-test-assessment-/
-│
-├── app/
-│   ├── llm/                # LLM integration code
-│   ├── vector_db/          # FAISS integration code
-│   └── chat/               # Front-end chat interface
-│       ├── index.html
-│       ├── style.css
-│       └── script.js
-│
-├── data/                   # Contains cocktails.csv
-│
-├── .env                    # Environment variables (API key)
-├── .gitignore
-├── README.md
-├── requirements.txt
-└── main.py                 # FastAPI application entry point
-
 ## Setup Instructions
 
 ### 1. Clone the Repository and Configure Environment Variables
