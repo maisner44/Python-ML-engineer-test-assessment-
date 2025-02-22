@@ -22,14 +22,18 @@ Accepts POST requests with user-provided favorite ingredients or cocktails, stor
 
 ## The version of openai is 0.28.0
 
+## Thought process
+
+I chose FastAPI and FAISS because of their simplicity compared to other technologies. Using OpenAI API was the most convenient way for me. The idea of ​​determining what information database should remember is using keyword detection. In further development, this approach can be improved by implementing NLP for more reliable detection. This can help reduce false positives and improve accuracy.
+
 ## Setup Instructions
 
 ### 1. Clone the Repository and Configure Environment Variables
-
+Create .env file ant set you api key:
 OPENAI_API_KEY=your_openai_api_key_here
 
-### 2. Run demo_fails.py
-Optional step thta shows how we store data into faiss
+### 2. Run demo_faiss.py
+Optional step that shows how we store data into faiss
 
 ### 3. Run the FastAPI Server
 uvicorn main:app --reload
@@ -67,7 +71,7 @@ Ensure the .env file is correctly configured with your OpenAI API key.
 Network Issues:
 Check any firewall or proxy settings if API calls fail.
 
-##Example of use:
+## Example of use:
 ![image](https://github.com/user-attachments/assets/f215dcc9-b8bf-44b3-b447-22d4a01ab342)
 
 
